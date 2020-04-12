@@ -5,7 +5,7 @@ import { Recipe } from './recipe.model';
   providedIn: 'root'
 })
 export class RecipesService {
-  recipes: Recipe[] = [
+  private recipes: Recipe[] = [
     {
       id: 'r1',
       title: 'Shawarma',
@@ -33,4 +33,10 @@ export class RecipesService {
     })
   };
   } 
+
+  deleteRecipe(recipeId: string) {
+    this.recipes = this.recipes.filter(recipe => {
+      return recipe.id !== recipeId;
+    });
+  }
 }
